@@ -72,6 +72,33 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- For Google App Engine -->
+		<dependency>
+			<groupId>com.google.cloud.sql</groupId>
+			<artifactId>mysql-socket-factory</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.api-client</groupId> 
+			<artifactId>google-api-client</artifactId>
+			<version>1.23.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactid>google-api-client-appengine</artifactid>
+			<version>1.21.0</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactid>jakarta.xml.bind-api</artifactid>
+			</dependency>
+		<dependency>
+			<groupid>com.sun.xml.bind</groupid>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.3</version>
+			<scope>runt ime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -111,7 +138,16 @@
                 </filesets>
             </configuration>
         </plugin>
-		</plugins>
-	</build>
-
+		<!-- For Google App Engine -->
+		<plugin>
+			<groupId>com.google.cloud.tools</groupId>
+			<artifactId>appengine-maven-plugin</artifactId>
+			<version>2.2.0</version>
+			<configuration>
+				<version>1</version>
+				<projectId>GCLOUD_CONFIG</projectId>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
 </project>
